@@ -24,7 +24,7 @@ If you'd prefer a global install:
 pip install tftpy
 ```
 
-> **Note:** On macOS/Linux, if running on port 69 with `sudo`, sudo won't inherit your activated venv. Either use a high port (`-p 6969`) to avoid sudo entirely, or invoke the venv Python directly: `sudo venv/bin/python3 tftp_server.py`.
+> **Note:** On macOS/Linux, if running on port 69 with `sudo`, sudo won't inherit your activated venv. By default this uses a high port (`-p 6969`) to avoid sudo entirely, or invoke the venv Python directly: `sudo venv/bin/python3 tftp_server.py`.
 
 ## Usage
 
@@ -38,7 +38,7 @@ python3 tftp_server.py [options]
 |---|---|---|
 | `-r`, `--root DIR` | `./tftp-root` | Root directory to serve files from |
 | `-b`, `--bind ADDR` | `0.0.0.0` | IP address to bind to |
-| `-p`, `--port PORT` | `69` | UDP port to listen on |
+| `-p`, `--port PORT` | `6969` | UDP port to listen on |
 | `--read-only` | Off | Reject all WRQ (upload) requests |
 | `--timeout SECS` | `60` | Per-transfer timeout |
 | `--blksize BYTES` | `512` | TFTP block size (max 65464) |
@@ -65,7 +65,7 @@ sudo venv/bin/python3 tftp_server.py --blksize 1468
 
 ## Notes
 
-- **Port 69** requires root (`sudo`) on Linux/macOS. Use `-p 6969` (or any port ≥ 1024) to run unprivileged.
+- **Port 69** requires root (`sudo`) on Linux/macOS. This uses `-p 6969` (or any port ≥ 1024) to run unprivileged.
 - When using `sudo` with a venv, call `sudo venv/bin/python3` directly rather than activating the venv first — `sudo` doesn't inherit your shell environment.
 - The root directory will be **created automatically** if it doesn't exist. Defaults to a `tftp-root` folder next to the script.
 - Stop the server cleanly with `Ctrl-C` or `SIGTERM`.
