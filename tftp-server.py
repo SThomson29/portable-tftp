@@ -128,9 +128,9 @@ Examples:
     parser.add_argument(
         "-p", "--port",
         type=int,
-        default=69,
+        default=6969,
         metavar="PORT",
-        help="UDP port to listen on (default: 69 — requires root)",
+        help="UDP port to listen on (default: 6969 — does not requires root)",
     )
     parser.add_argument(
         "--read-only",
